@@ -1,4 +1,4 @@
-﻿//Zuerst das dictionary für die römischen Zahlen erstellen
+//Zuerst das dictionary für die römischen Zahlen erstellen
 Dictionary<int, string> romdic = new Dictionary<int, string>()
         {
             { 1000, "M" },
@@ -21,16 +21,17 @@ do
 
     //danach eine Readline für die Eingabe von der jeweligen arabischen Nummer machen
     Console.Write("Enter a number: ");
-    int arab = int.Parse(Console.ReadLine());
+    int arab = int.Parse(Console.ReadLine()); //z.B. 528
 
     //Diese wird dann mit dem dictionary verglichen und dann berechnet
-    string rom = "";
+    string rom = ""; 
     foreach (KeyValuePair<int, string> pair in romdic)
     {
         while (arab >= pair.Key)
         {
-            rom += pair.Value;
+            rom += pair.Value; 
             arab -= pair.Key;
+           /* Console.WriteLine (pair.Key + ": " + rom + " : " + arab); */ //Falls unklar einfach Commentar öffnen
         }
     }
 
@@ -39,13 +40,14 @@ do
 
 
     //zum Wiederholen eine Frage
-    Console.WriteLine("Again?");
+    Console.WriteLine("Again? (Enter Yes)");
     string ans = Console.ReadLine();
 
-    if (ans == "Yes")
-        continue;
-    else
+
+    if (ans != "Yes")
+    {
         break;
+    }
 
 
-}while (true);
+} while (true);
